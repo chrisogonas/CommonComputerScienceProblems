@@ -13,37 +13,58 @@ namespace CommonComputerScienceProblems
         {
             Node current1 = head1, next1 = head1.next;
             Node current2 = head2, next2 = head2.next;
+            Node newHead = null, newTail = null;
 
-            while (next1 != null && current2 != null)
+            if (head1 == null && head2 != null) { return head2; }
+            if (head2 == null && head1 != null) { return head1; }
+            if (head1 == null && head2 == null) { return null; }
+
+            if (head1.Data <= head2.Data)
             {
-                if (current2.Data >= current1.Data &&
-                    current2.Data <= next1.Data)
-                {
-                    next2 = current2.next;
-                    current2.next = current1.next;
-                    current1.next = current2;
+                newHead = head1;
+                newTail = newHead;
+            }
+            if (head2.Data < head1.Data)
+            {
+                newHead = head2;
+                newTail = newHead;
+            }
 
-                    current1 = current2;
-                    current2 = next2;
+            while (current1 != null && current2 != null)
+            {
+                if (current1.Data <= current2.Data)
+                { // node in 1 is less or equal
+                  // Console.Write($"{current1.data} ");
+                    next1 = current1.next;
+                    newTail.next = current1;
+                    current1.next = null;
+                    newTail = current1;
+                    current1 = next1;
                 }
                 else
-                {
-                    // where list 1 is longer than list 2
-                    if (next1.next != null)
-                    {
-                        next1 = next1.next;
-                        current1 = current1.next;
-                    }
-                    else
-                    {
-                        // list 1 is shorter
-                        // route end of 1 to current head of 2
-                        next1.next = current2;
-                        return head1;
-                    }
+                { // node in 2 is less
+                  // Console.Write($"{current2.data} ");
+                    next2 = current2.next;
+                    newTail.next = current2;
+                    current2.next = null;
+                    newTail = current2;
+                    current2 = next2;
                 }
             }
-            return head1;
+
+            // where list 1 is longer than list 2
+            if (current1 != null)
+            {
+                newTail.next = current1;
+            }
+
+            // list 2 is longer
+            if (current2 != null)
+            {
+                newTail.next = current2;
+            }
+
+            return newHead;
 
         }
     }
