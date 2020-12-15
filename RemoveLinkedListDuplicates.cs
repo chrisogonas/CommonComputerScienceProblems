@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CommonComputerScienceProblems
 {
+    /// <summary>
+    /// Remove duplicate nodes
+    /// </summary>
     class RemoveLinkedListDuplicates
     {
         static Node removeDuplicates(Node head)
