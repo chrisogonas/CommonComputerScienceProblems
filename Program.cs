@@ -8,16 +8,29 @@ namespace CommonComputerScienceProblems
     {
         static void Main(string[] args)
         {
-            Hashtable mychars = new Hashtable();
-            HashSet<char> mySet = new HashSet<char>();
-            Stack stack = new Stack();
-            stack.Push("aaa");
-            string abc = stack.Peek().ToString();
+            //Dictionary<int, int> ddd = new Dictionary<int, int>();
+            //ddd.Add(2, 4);
+            //int itx = ddd[2];
+            //string abcd = Console.ReadLine();
+            //Hashtable mychars = new Hashtable();
+            //HashSet<char> mySet = new HashSet<char>();
+            //Stack stack = new Stack();
+            //stack.Push("aaa");
+            //string abc = stack.Peek().ToString();
 
-            mychars.Add('(', '(');
-            mychars.Add('(', '(');
-            mychars.Add('(', '(');
-            Console.WriteLine("Hello World!");
+            //mychars.Add('(', '(');
+            //mychars.Add('(', '(');
+            //mychars.Add('(', '(');
+            //Console.WriteLine("Hello World!");
+            //QueueByStack qbs = new QueueByStack();
+
+            //do
+            //{
+            //    QueueByStack.OperateQueue();
+            //} while (true);
+
+            //IcecreamParlor icecreamParlor = new IcecreamParlor();
+            IcecreamParlor.GetMaxPurchase(4, new int[] { 1, 4, 5, 1, 3, 2 });
         }
     }
 }
