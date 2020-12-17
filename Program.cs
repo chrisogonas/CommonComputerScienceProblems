@@ -31,7 +31,16 @@ namespace CommonComputerScienceProblems
 
             //IcecreamParlor icecreamParlor = new IcecreamParlor();
             //IcecreamParlor.GetMaxPurchase(4, new int[] { 1, 4, 5, 1, 3, 2 });
-            MergeSort.PerformMergeSort(new int[] { 23, 47, 81, 95 }, new int[] { 7, 14, 39, 55, 62, 74 });
+            //MergeSort.PerformMergeSort(new int[] { 23, 47, 81, 95 }, new int[] { 7, 14, 39, 55, 62, 74 });
+
+            // Tree node test
+            TreeNode node = new TreeNode(10);
+            node.Insert(8);
+            node.Insert(5);
+            node.Insert(15);
+            Console.WriteLine(node.Contains(20));
+            Console.WriteLine(node.Contains(8));
+            node.InOrderTraverse();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace CommonComputerScienceProblems
                     arrayC[cl++] = arrayB[bl++];
                 }
             }
-
+            
             while (al < arrayA.Length)
             {
                 arrayC[cl++] = arrayA[al++];
