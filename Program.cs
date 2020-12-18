@@ -34,13 +34,48 @@ namespace CommonComputerScienceProblems
             //MergeSort.PerformMergeSort(new int[] { 23, 47, 81, 95 }, new int[] { 7, 14, 39, 55, 62, 74 });
 
             // Tree node test
-            TreeNode node = new TreeNode(10);
-            node.Insert(8);
-            node.Insert(5);
-            node.Insert(15);
-            Console.WriteLine(node.Contains(20));
-            Console.WriteLine(node.Contains(8));
-            node.InOrderTraverse();
+            //TreeNode node = new TreeNode(10);
+            //node.InsertNode(8);
+            //node.InsertNode(5);
+            //node.InsertNode(15);
+            //Console.WriteLine(node.Contains(20));
+            //Console.WriteLine(node.Contains(8));
+            //node.InOrderTraverse();
+
+            //int[] aa = new int[] { 23, 47, 81, 95 };
+            //int[] bb = new int[6];
+            //Array.Copy(aa, bb, 4);
+
+            // heaps
+            // Array representation of Max-Heap 
+            //     10 
+            //    /  \ 
+            //   5    3 
+            //  / \ 
+            // 2   4 
+            int[] array = new int[100];
+            int[] array1 = new int[] { 10, 5, 3, 2, 4 };
+            Array.Copy(array1, array, array1.Length);
+
+            int n = 5;
+            int key = 15;
+
+            Console.WriteLine("Before insert:");
+            HeapOperations.PrintHeap(array, n);
+
+            int[] array2 = HeapOperations.InsertNode(array, n, key);
+
+            Console.WriteLine();
+            Console.WriteLine("After insert:");
+
+            HeapOperations.PrintHeap(array, 6);
+
+            // Final Heap will be: 
+            //     15 
+            //    /   \ 
+            //   5     10 
+            //  / \   / 
+            // 2   4 3 
         }
     }
 }
