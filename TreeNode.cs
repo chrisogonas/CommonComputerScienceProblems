@@ -69,6 +69,36 @@ namespace CommonComputerScienceProblems
 
         }
 
+        /// <summary>
+        /// get minimum value of BST
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public static int GetMinimumValue(TreeNode node)
+        {
+            while (node.Left != null)
+            {
+                node = node.Left;
+            }
+
+            return node.Data;
+        }
+
+        /// <summary>
+        /// get maximum value of BST
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public static int GetMaximumValue(TreeNode node)
+        {
+            while (node.Right != null)
+            {
+                node = node.Right;
+            }
+
+            return node.Data;
+        }
+
         public void InOrderTraverse()
         {
             if (this.Left != null)
