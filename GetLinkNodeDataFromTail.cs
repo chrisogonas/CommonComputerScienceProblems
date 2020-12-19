@@ -14,7 +14,7 @@ namespace CommonComputerScienceProblems
 
             while (tempNode != null)
             {
-                tempNode = tempNode.next;
+                tempNode = tempNode.Next;
                 if (tempNode != null) { len++; }
             }
 
@@ -28,7 +28,7 @@ namespace CommonComputerScienceProblems
                     break;
                 }
                 posn--;
-                tempNode = tempNode.next;
+                tempNode = tempNode.Next;
             }
 
             return data;

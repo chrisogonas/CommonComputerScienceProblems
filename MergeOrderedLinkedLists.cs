@@ -11,8 +11,8 @@ namespace CommonComputerScienceProblems
     {
         static Node mergeLists(Node head1, Node head2)
         {
-            Node current1 = head1, next1 = head1.next;
-            Node current2 = head2, next2 = head2.next;
+            Node current1 = head1, next1 = head1.Next;
+            Node current2 = head2, next2 = head2.Next;
             Node newHead = null, newTail = null;
 
             if (head1 == null && head2 != null) { return head2; }
@@ -35,18 +35,18 @@ namespace CommonComputerScienceProblems
                 if (current1.Data <= current2.Data)
                 { // node in 1 is less or equal
                   // Console.Write($"{current1.data} ");
-                    next1 = current1.next;
-                    newTail.next = current1;
-                    current1.next = null;
+                    next1 = current1.Next;
+                    newTail.Next = current1;
+                    current1.Next = null;
                     newTail = current1;
                     current1 = next1;
                 }
                 else
                 { // node in 2 is less
                   // Console.Write($"{current2.data} ");
-                    next2 = current2.next;
-                    newTail.next = current2;
-                    current2.next = null;
+                    next2 = current2.Next;
+                    newTail.Next = current2;
+                    current2.Next = null;
                     newTail = current2;
                     current2 = next2;
                 }
@@ -55,13 +55,13 @@ namespace CommonComputerScienceProblems
             // where list 1 is longer than list 2
             if (current1 != null)
             {
-                newTail.next = current1;
+                newTail.Next = current1;
             }
 
             // list 2 is longer
             if (current2 != null)
             {
-                newTail.next = current2;
+                newTail.Next = current2;
             }
 
             return newHead;
@@ -71,7 +71,7 @@ namespace CommonComputerScienceProblems
 
     class Node
     {
-        public Node next = null;
+        public Node Next = null;
         public int Data { get; set; }
 
         public Node(int data)

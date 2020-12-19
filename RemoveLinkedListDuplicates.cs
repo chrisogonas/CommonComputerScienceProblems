@@ -21,28 +21,28 @@ namespace CommonComputerScienceProblems
                     newHead = current;
                     headSet = true;
                 }
-                if (current.next != null)
+                if (current.Next != null)
                 {
-                    if (current.next.Data == current.Data)
+                    if (current.Next.Data == current.Data)
                     {
-                        if (current.next.next != null)
+                        if (current.Next.Next != null)
                         {
-                            current.next = current.next.next; // skip similar node
+                            current.Next = current.Next.Next; // skip similar node
                         }
                         else
                         {
-                            current.next = current.next.next; // skip last similar node
+                            current.Next = current.Next.Next; // skip last similar node
                             break; // end of list
                         }
                     }
                     else
                     { // neighbors are unique
-                        current = current.next;
+                        current = current.Next;
                     }
                 }
                 else
                 {
-                    current = current.next; // advance to null if at the end
+                    current = current.Next; // advance to null if at the end
                 }
             }
 

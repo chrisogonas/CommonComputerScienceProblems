@@ -23,7 +23,7 @@ namespace CommonComputerScienceProblems
                     nodes.Add(head);
                 }
 
-                head = head.next;
+                head = head.Next;
             }
 
             return false;
