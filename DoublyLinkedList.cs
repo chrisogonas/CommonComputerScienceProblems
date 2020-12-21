@@ -85,6 +85,32 @@ namespace CommonComputerScienceProblems
 
             return tempNode;
         }
+
+        /// <summary>
+        /// Reverse the order of the nodes of a doubly linked list in place, given the pointer to the head.
+        /// </summary>
+        /// <param name="head">pointer to the list head</param>
+        /// <returns>new list head</returns>
+        public static DblNode reverse(DblNode head)
+        {
+            DblNode previous = null;
+            DblNode current = head;
+            DblNode next = head.Next;
+
+            if (current == null || current.Next == null) { return current; } // empty or 1 node
+
+            while (current != null)
+            {
+                next = current.Next;
+                current.Next = previous;
+                current.Previous = current.Next;
+                previous = current;
+                current = next;
+            }
+
+            return previous;
+
+        }
     }
 }
 
