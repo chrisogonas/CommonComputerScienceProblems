@@ -34,14 +34,14 @@ namespace CommonComputerScienceProblems
             //MergeSort.PerformMergeSort(new int[] { 23, 47, 81, 95 }, new int[] { 7, 14, 39, 55, 62, 74 });
 
             // Tree node test
-            TreeNode node = new TreeNode(10);
-            node.Insert(8);
-            node.Insert(5);
-            node.Insert(15);
-            Console.WriteLine(node.Contains(20));
-            Console.WriteLine(node.Contains(8));
-            Console.WriteLine(TreeNode.GetMinimumValue(node));
-            Console.WriteLine(TreeNode.GetMaximumValue(node));
+            //TreeNode node = new TreeNode(10);
+            //node.Insert(8);
+            //node.Insert(5);
+            //node.Insert(15);
+            //Console.WriteLine(node.Contains(20));
+            //Console.WriteLine(node.Contains(8));
+            //Console.WriteLine(TreeNode.GetMinimumValue(node));
+            //Console.WriteLine(TreeNode.GetMaximumValue(node));
             //node.InOrderTraverse();
 
             //int[] aa = new int[] { 23, 47, 81, 95 };
@@ -78,6 +78,10 @@ namespace CommonComputerScienceProblems
             ////   5     10 
             ////  / \   / 
             //// 2   4 3 
+            ///
+
+            // Palindromes
+            Console.WriteLine(Palindrome.CheckPalindrome("abcsba"));
         }
     }
 }
