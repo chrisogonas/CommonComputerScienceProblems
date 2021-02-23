@@ -110,7 +110,7 @@ namespace CommonComputerScienceProblems
             //ThreadedBinaryTree.TraverseInOrder(tree.Root);
             //Queue<TBTNode> qRet = ThreadedBinaryTree.CreateQueue(qNodes, tree.Root);
             TBTNode node = ThreadedBinaryTree.CreateThreadedBST(tree.Root);
-            ThreadedBinaryTree.TraverseTBTInOrder(node);
+            ThreadedBinaryTree.TraverseTBTInOrder(tree.Root);
         }
     }
 }
