@@ -81,7 +81,36 @@ namespace CommonComputerScienceProblems
             ///
 
             // Palindromes
-            Console.WriteLine(Palindrome.CheckPalindrome("abcsba"));
+            //Console.WriteLine(Palindrome.CheckPalindrome("abcsba"));
+
+            // THREADED BINARY TREE
+            ThreadedBinaryTree tree = new ThreadedBinaryTree();
+            //tree.Root = new TBTNode(1);
+            //tree.Root.Left = new TBTNode(2);
+            //tree.Root.Right = new TBTNode(3);
+
+            //tree.Root.Left.Left = new TBTNode(4);
+            //tree.Root.Left.Right = new TBTNode(5);
+            //tree.Root.Right.Left = new TBTNode(6);
+            //tree.Root.Right.Right = new TBTNode(7);
+
+            //ThreadedBinaryTree.TraverseInOrder(tree.Root);
+
+            tree.Root = new TBTNode(6);
+            ThreadedBinaryTree.InsertKey(tree.Root, 10);
+            ThreadedBinaryTree.InsertKey(tree.Root, 3);
+            ThreadedBinaryTree.InsertKey(tree.Root, 2);
+            ThreadedBinaryTree.InsertKey(tree.Root, 7);
+            ThreadedBinaryTree.InsertKey(tree.Root, 4);
+            ThreadedBinaryTree.InsertKey(tree.Root, 1);
+            ThreadedBinaryTree.InsertKey(tree.Root, 5);
+            ThreadedBinaryTree.InsertKey(tree.Root, 9);
+
+            Queue<TBTNode> qNodes = new Queue<TBTNode>();
+            ThreadedBinaryTree.TraverseInOrder(tree.Root);
+            Queue<TBTNode> qRet = ThreadedBinaryTree.CreateQueue(qNodes, tree.Root);
+            TBTNode node = ThreadedBinaryTree.CreateThreadedBST(qNodes, tree.Root);
+            ThreadedBinaryTree.TraverseTBTInOrder(node);
         }
     }
 }
