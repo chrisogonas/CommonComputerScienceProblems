@@ -96,21 +96,28 @@ namespace CommonComputerScienceProblems
 
             //ThreadedBinaryTree.TraverseInOrder(tree.Root);
 
-            tree.Root = new TBTNode(6);
-            ThreadedBinaryTree.InsertKey(tree.Root, 10);
-            ThreadedBinaryTree.InsertKey(tree.Root, 3);
-            ThreadedBinaryTree.InsertKey(tree.Root, 2);
-            ThreadedBinaryTree.InsertKey(tree.Root, 7);
-            ThreadedBinaryTree.InsertKey(tree.Root, 4);
-            ThreadedBinaryTree.InsertKey(tree.Root, 1);
-            ThreadedBinaryTree.InsertKey(tree.Root, 5);
-            ThreadedBinaryTree.InsertKey(tree.Root, 9);
+            //tree.Root = new TBTNode(6);
+            //ThreadedBinaryTree.InsertKey(tree.Root, 10);
+            //ThreadedBinaryTree.InsertKey(tree.Root, 3);
+            //ThreadedBinaryTree.InsertKey(tree.Root, 2);
+            //ThreadedBinaryTree.InsertKey(tree.Root, 7);
+            //ThreadedBinaryTree.InsertKey(tree.Root, 4);
+            //ThreadedBinaryTree.InsertKey(tree.Root, 1);
+            //ThreadedBinaryTree.InsertKey(tree.Root, 5);
+            //ThreadedBinaryTree.InsertKey(tree.Root, 9);
 
-            //Queue<TBTNode> qNodes = new Queue<TBTNode>();
-            //ThreadedBinaryTree.TraverseInOrder(tree.Root);
-            //Queue<TBTNode> qRet = ThreadedBinaryTree.CreateQueue(qNodes, tree.Root);
-            TBTNode node = ThreadedBinaryTree.CreateThreadedBST(tree.Root);
-            ThreadedBinaryTree.TraverseTBTInOrder(tree.Root);
+            ////Queue<TBTNode> qNodes = new Queue<TBTNode>();
+            ////ThreadedBinaryTree.TraverseInOrder(tree.Root);
+            ////Queue<TBTNode> qRet = ThreadedBinaryTree.CreateQueue(qNodes, tree.Root);
+            //TBTNode node = ThreadedBinaryTree.CreateThreadedBST(tree.Root);
+            //ThreadedBinaryTree.TraverseTBTInOrder(tree.Root);
+
+            // KTH ORDER STATISTIC
+            int[] arr1 = { 2, 3, 6, 7, 9 };
+            int[] arr2 = { 1, 4, 8, 10, 12 };
+            int k = 9;
+            int st1 = 0, st2 = 0;
+            Console.WriteLine(KthOrderElement.FindKthElement(arr1, arr2, 5, 4, k, st1, st2));
         }
     }
 }
