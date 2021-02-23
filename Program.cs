@@ -106,10 +106,10 @@ namespace CommonComputerScienceProblems
             ThreadedBinaryTree.InsertKey(tree.Root, 5);
             ThreadedBinaryTree.InsertKey(tree.Root, 9);
 
-            Queue<TBTNode> qNodes = new Queue<TBTNode>();
-            ThreadedBinaryTree.TraverseInOrder(tree.Root);
-            Queue<TBTNode> qRet = ThreadedBinaryTree.CreateQueue(qNodes, tree.Root);
-            TBTNode node = ThreadedBinaryTree.CreateThreadedBST(qNodes, tree.Root);
+            //Queue<TBTNode> qNodes = new Queue<TBTNode>();
+            //ThreadedBinaryTree.TraverseInOrder(tree.Root);
+            //Queue<TBTNode> qRet = ThreadedBinaryTree.CreateQueue(qNodes, tree.Root);
+            TBTNode node = ThreadedBinaryTree.CreateThreadedBST(tree.Root);
             ThreadedBinaryTree.TraverseTBTInOrder(node);
         }
     }

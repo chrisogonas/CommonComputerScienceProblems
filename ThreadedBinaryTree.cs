@@ -95,16 +95,21 @@ namespace CommonComputerScienceProblems
 
             while (current != null)
             {
+                Console.Write($"{current.Key} ");
+
                 if (current.Next != null)
                 {
-                    Console.WriteLine($"{current.Key} ");
                     current = current.Next;
+                }
+                else
+                {
+                    current = LeftMostNode(current.Right);
                 }
             }
         }
 
         /// <summary>
-        /// Create ordered queue of the tree nodes in ascending order
+        /// Create ordered queue of the tree nodes in ascending order; can ignore this queue for now; not used
         /// </summary>
         /// <param name="qNodes"></param>
         /// <param name="node"></param>
@@ -133,39 +138,42 @@ namespace CommonComputerScienceProblems
         /// <summary>
         /// Create Threaded BST i.e. TBT
         /// </summary>
-        /// <param name="qNodes"></param>
-        /// <param name="node"></param>
+        /// <param name="root"></param>
         /// <returns></returns>
-        public static TBTNode CreateThreadedBST(Queue<TBTNode> qNodes, TBTNode node)
+        public static TBTNode CreateThreadedBST(TBTNode root)
         {
-            if (qNodes is null || node is null)
+            // root is null, just get out
+            if (root is null)
             {
                 return null;
             }
 
-            if (node.Left != null)
+            // root is the only node
+            if (root.Left is null && root.Right is null)
             {
-                CreateThreadedBST(qNodes, node.Left);
+                return root;
             }
 
-            TBTNode qNode = null;
-            if (qNodes.Count > 0)
+            // Find predecessor, if any
+            if (root.Left != null)
             {
-                qNode = qNodes.Dequeue();
-            }
-            if (node.Right != null)
-            {
-                CreateThreadedBST(qNodes, node.Right);
-            }
-            else
-            {
-                if (qNodes.Count > 0)
-                {
-                    node.Next = qNode;
-                }
+                // Find predecessor of root (Rightmost   
+                // child in left subtree) 
+                TBTNode tNode =  CreateThreadedBST(root.Left);
+
+                // Link a thread from predecessor to root.
+                tNode.Next = root;
             }
 
-            return node; // new Tuple<TBTNode, Queue<TBTNode>>(node,qNodes);
+            // If node is the rightmost child
+            if (root.Right is null)
+            {
+                return root;
+            }
+
+            // Recur for right subtree
+
+            return CreateThreadedBST(root.Right);
         }
 
         private static TBTNode LeftMostNode(TBTNode node)
