@@ -114,10 +114,16 @@ namespace CommonComputerScienceProblems
 
             // KTH ORDER STATISTIC
             int[] arr1 = { 2, 3, 6, 7, 9 };
-            int[] arr2 = { 1, 4, 8, 10, 12 };
-            int k = 9;
-            int st1 = 0, st2 = 0;
-            Console.WriteLine(KthOrderElement.FindKthElement(arr1, arr2, 5, 4, k, st1, st2));
+            int[] arr2 = { 1, 4, 8, 10 };
+            int m = arr1.Length;
+            int n = arr2.Length;
+            int k = 8;
+            int ans = KthOrderElement.FindKthElement(arr1, m, arr2, n, k);
+
+            if (ans == -1)
+                Console.WriteLine("Invalid query");
+            else
+                Console.WriteLine(ans);
         }
     }
 }

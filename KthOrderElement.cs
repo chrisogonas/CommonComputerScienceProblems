@@ -12,81 +12,44 @@ namespace CommonComputerScienceProblems
     /// </summary>
     class KthOrderElement
     {
-        public static int FindKthElement(int[] arr1, int[] arr2, int m,
-                int n, int k, int st1, int st2)
+        public static int FindKthElement(int[] arr1, int m, int[] arr2, int n, int k)
         {
-            // In case we have reached end of array 1
-            if (st1 == m)
-            {
-                return arr2[st2 + k - 1];
-            }
-
-            // In case we have reached end of array 2
-            if (st2 == n)
-            {
-                return arr1[st1 + k - 1];
-            }
-
-            // k should never reach 0 or exceed sizes
-            // of arrays
-            if (k == 0 || k > (m - st1) + (n - st2))
-            {
+            if (k > (m + n) || k < 1)
                 return -1;
-            }
 
-            // Compare first elements of arrays and return
+            // let m > n
+            if (m > n)
+                return FindKthElement(arr2, n, arr1, m, k);
+
+            // Check if arr1 is empty returning 
+            // k-th element of arr2
+            if (m == 0)
+                return arr2[k - 1];
+
+            // Check if k = 1 return minimum of first
+            // two elements of both arrays
             if (k == 1)
-            {
-                return (arr1[st1] < arr2[st2])
-                        ? arr1[st1] : arr2[st2];
-            }
-            int curr = k / 2;
+                return Math.Min(arr1[0], arr2[0]);
 
-            // Size of array 1 is less than k / 2
-            if (curr - 1 >= m - st1)
+            // Now the divide and conquer part
+            int i = Math.Min(m, k / 2);
+            int j = Math.Min(n, k / 2);
+
+            if (arr1[i - 1] > arr2[j - 1])
             {
 
-                // Last element of array 1 is not kth
-                // We can directly return the (k - m)th
-                // element in array 2
-                if (arr1[m - 1] < arr2[st2 + curr - 1])
-                {
-                    return arr2[st2 + (k - (m - st1) - 1)];
-                }
-                else
-                {
-                    return FindKthElement(arr1, arr2, m, n, k - curr,
-                            st1, st2 + curr);
-                }
+                // Now we need to find only k-j th element
+                // since we have found out the lowest j
+                int[] temp1 = new int[n-j];
+                Array.Copy(arr2, j, temp1, 0, temp1.Length);
+                return FindKthElement(arr1, m, temp1, n - j, k - j);
             }
 
-            // Size of array 2 is less than k / 2
-            if (curr - 1 >= n - st2)
-            {
-                if (arr2[n - 1] < arr1[st1 + curr - 1])
-                {
-                    return arr1[st1 + (k - (n - st2) - 1)];
-                }
-                else
-                {
-                    return FindKthElement(arr1, arr2, m, n, k - curr,
-                            st1 + curr, st2);
-                }
-            }
-            else
-
-            // Normal comparison, move starting index
-            // of one array k / 2 to the right
-            if (arr1[curr + st1 - 1] < arr2[curr + st2 - 1])
-            {
-                return FindKthElement(arr1, arr2, m, n, k - curr,
-                        st1 + curr, st2);
-            }
-            else
-            {
-                return FindKthElement(arr1, arr2, m, n, k - curr,
-                        st1, st2 + curr);
-            }
+            // Now we need to find only k-i th element
+            // since we have found out the lowest i
+            int[] temp2 = new int[k-i]; // Arrays.copyOfRange(arr1, i, m);
+            Array.Copy(arr1, i, temp2, 0, temp2.Length);
+            return FindKthElement(temp2, m - i, arr2, n, k - i);
         }
     }
 }
